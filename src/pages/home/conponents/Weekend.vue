@@ -4,7 +4,7 @@
     <ul>
       <li
         class="item border-bottom"
-        v-for="item of recommendList"
+        v-for="item of list"
         :key="item.key">
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.imgUrl">
@@ -21,25 +21,8 @@
 <script>
 export default {
   name: 'HomeWeekend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'https://img1.qunarzz.com/sight/p0/1604/b8/b8e41237b32404d590.img.jpg_350x240_17caf4d8.jpg',
-        title: '深圳湾公园',
-        desc: '浪漫深圳首站，浪漫的海洋主题乐园'
-      }, {
-        id: '0002',
-        imgUrl: 'https://img1.qunarzz.com/sight/p0/1604/b8/b8e41237b32404d590.img.jpg_350x240_17caf4d8.jpg',
-        title: '深圳湾公园',
-        desc: '浪漫深圳首站，浪漫的海洋主题乐园'
-      }, {
-        id: '0003',
-        imgUrl: 'https://img1.qunarzz.com/sight/p0/1604/b8/b8e41237b32404d590.img.jpg_350x240_17caf4d8.jpg',
-        title: '深圳湾公园',
-        desc: '浪漫深圳首站，浪漫的海洋主题乐园'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
@@ -49,14 +32,13 @@ export default {
 @import '~styles/mixins.styl'
 
 .title
-  margin-top: .2rem
   line-height: .8rem
   background: #eee
   text-indent: .2rem
 .item-img-wrapper
   height: 0
   overflow hidden
-  padding-bottom: 33.9%
+  padding-bottom: 37.09%
   .item-img
     width: 100%
 .item-info
