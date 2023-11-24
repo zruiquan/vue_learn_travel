@@ -27,6 +27,7 @@ export default {
 
 <!-- lang="stylus": 使用stylus语法编写css, scoped: 样式做限制，只对当前组件有影响，不会影响其他组件 -->
 <!-- 1rem = html font-size = 50px -->
+<!-- $bgColor 引用varibles.styl文件中的变量 -->
 <!--
      @import '~@/assets/styles/varibles.styl'
      @import: 样式中引用样式，使用样式变量
