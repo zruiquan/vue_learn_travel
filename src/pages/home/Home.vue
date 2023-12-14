@@ -15,6 +15,7 @@ import HomeIcons from './components/Icons.vue'
 import HomeRecommend from './components/Recommend.vue'
 import HomeWeekend from './components/Weekend.vue'
 import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
   name: 'Home',
   components: {
@@ -24,11 +25,16 @@ export default {
     HomeRecommend,
     HomeWeekend
   },
+  computed: {
+    ...mapState(['city'])
+  },
   mounted () {
+    this.lastCity = this.city
     this.getHomeInfo()
   },
   data () {
     return {
+      lastCity: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
@@ -37,7 +43,7 @@ export default {
   },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json').then(this.getHomeInfoSucc)
+      axios.get('/api/index.json?city=' + this.city).then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
       res = res.data
@@ -48,6 +54,14 @@ export default {
         this.recommendList = data.recommendList
         this.weekendList = data.weekendList
       }
+    }
+  },
+  // 当使用了keep-alive，则会多出来一个生命周期函数，表示页面每次重新被显示的时候，activated会被执行
+  // 结合lastCity这个临时缓冲变量，实现首页代码性能优化的调整
+  activated () {
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getHomeInfo()
     }
   }
 }

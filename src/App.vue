@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <router-view/>
+    <!--
+      keep-alive: 路由的内容被加载过一次后就把路由中的内容放在内存中，下载再进这个路由的时候，
+                  不需要重新渲染这个组件和重新执行钩子函数，只需要从内存中把之前的内容拿出来显示在页面上就可以了
+    -->
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
