@@ -47,8 +47,13 @@ export default {
       }
     }
   },
+  // 每次页面展示的时候执行，此钩子函数会被执行
   activated () {
     window.addEventListener('scroll', this.handleScroll)
+  },
+  // 每次页面即将被替换成新的页面的时候，此钩子函数会被执行
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
