@@ -10,7 +10,7 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    // 识别api开头路径，并转发到/static/mock的静态文件数据上
+    // 测试开发环境下的前后端联调配置，识别api开头路径，并转发到/static/mock的静态文件数据上
     proxyTable: {
       '/api': {
         target: 'http://localhost:8080',
@@ -19,6 +19,13 @@ module.exports = {
         }
       }
     },
+    // 真实开发环境下的前后端联调配置
+    // proxyTable: {
+    //   '/api': {
+    //     输入后端接口地址，pathRewrite：如果地址路径需要转换，就加此配置，如果一致，则可以省略掉
+    //     target: 'http://xxx.xxx.xxx.xxx:80'
+    //   }
+    // },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
