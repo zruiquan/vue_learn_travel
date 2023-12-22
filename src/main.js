@@ -16,7 +16,8 @@ import 'styles/iconfont.css'
 // 引入vue-awesome-swiper
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
-
+// 引入 babel-polyfill 模块，解决安卓版本过低不支持es6语法而导致的白屏等问题,如: Promise
+import 'babel-polyfill'
 // 使用fastClick绑定到document.body
 fastClick.attach(document.body)
 Vue.config.productionTip = false
