@@ -1,18 +1,18 @@
 <template>
-    <div class="list">
-        <li class="item"
-          v-for="item of letters"
-          :key="item"
-          :ref="item"
-          @click="handleLetterClick"
-          @touchstart="handleTouchStart"
-          @touchmove="handleTouchMove"
-          @touchend="handleTouchEnd"
-          >
-          {{ item }}
-        </li>
-    </div>
-  </template>
+  <div class="list">
+      <li class="item"
+        v-for="item of letters"
+        :key="item"
+        :ref="item"
+        @touchstart.prevent="handleTouchStart"
+        @touchmove="handleTouchMove"
+        @touchend="handleTouchEnd"
+        @click="handleLetterClick"
+        >
+        {{ item }}
+      </li>
+  </div>
+</template>
 
 <script>
 export default {
