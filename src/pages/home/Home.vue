@@ -19,6 +19,8 @@ import { mapState } from 'vuex'
 export default {
   name: 'Home',
   components: {
+    // 不仅仅是在路由里可以使用异步组件的形式，在组件中也可以直接使用异步组件进行加载
+    // HomeHeader: () => import('./components/Header'),
     HomeHeader,
     HomeSwiper,
     HomeIcons,

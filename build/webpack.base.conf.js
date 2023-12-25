@@ -46,12 +46,16 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: vueLoaderConfig
+        options: vueLoaderConfig,
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')],
+        // 添加支持动态导入的语法
+        options:{
+          plugins: ['syntax-dynamic-import']    
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
